@@ -33,6 +33,7 @@ export const Toolbar = () => {
 
   return (
     <ToolbarComponent className={toolbarStyles.root}>
+      <div />
       {session !== null ? <UserMenuSettings /> : <SignInDialog />}
     </ToolbarComponent>
   );

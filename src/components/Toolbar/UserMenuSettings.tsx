@@ -20,6 +20,7 @@ import {
 } from "@fluentui/react-icons";
 import { signOut, useSession } from "next-auth/react";
 import { useAppContext } from "../../context";
+import Image from "next/image";
 
 const ColorIcon = bundleIcon(ColorFilled, ColorRegular);
 const SignOutIcon = bundleIcon(SignOutFilled, SignOutRegular);
