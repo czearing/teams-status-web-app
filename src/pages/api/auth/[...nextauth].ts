@@ -7,6 +7,11 @@ export default NextAuth({
       clientId: process.env.AZURE_AD_CLIENT_ID!,
       clientSecret: process.env.AZURE_AD_CLIENT_SECRET!,
       tenantId: process.env.AZURE_AD_TENANT_ID,
+      authorization: {
+        params: {
+          scope: "openid email profile User.Read",
+        },
+      },
     }),
   ],
 
@@ -35,16 +40,21 @@ export default NextAuth({
       if (session) {
         session = Object.assign({}, session, {
           access_token: token.access_token,
+          user_id: token.user_id,
         });
-        console.log(session);
       }
       return session;
     },
 
-    async jwt({ token, account }) {
+    async jwt({ token, account, user }) {
       if (account) {
         token = Object.assign({}, token, {
           access_token: account.access_token,
+        });
+      }
+      if (user) {
+        token = Object.assign({}, token, {
+          user_id: user.id,
         });
       }
       return token;

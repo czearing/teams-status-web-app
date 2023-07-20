@@ -63,11 +63,11 @@ export default function App(props: AppProps) {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <Head>
-            <title>Voice Assistant</title>
-            <meta name="title" content="Voice Assistant" />
+            <title>My Status</title>
+            <meta name="title" content="My Status" />
             <meta
               name="description"
-              content="A helpful voice assistant site."
+              content="A site that showcases various statuses such as Team's presence."
             />
             <link rel="icon" type="image/svg+xml" href="/image/favicon.svg" />
           </Head>
